@@ -23,17 +23,37 @@ To get access to the API, a access token must be requested, calling our STS (Sec
 
 The token endpoint at IdentityServer implements the OAuth 2.0 protocol, and you could use raw HTTP to access it. However, we have a client library called IdentityModel, that encapsulates the protocol interaction in an easy to use API.
 
-.. autofunction:: lumache.get_random_ingredients
+Add the ``IdentityModel`` NuGet package to your client. 
+This can be done either via Visual Studio's Nuget Package manager or dotnet CLI::
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+IdentityModel includes a client library to use with the discovery endpoint. This way you only need to know the base-address of IdentityServer - the actual endpoint addresses can be read from the metadata::
 
-.. autoexception:: lumache.InvalidKindError
+    // discover endpoints from metadata
+    var client = new HttpClient();
+    var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5001");
+    if (disco.IsError)
+    {
+        Console.WriteLine(disco.Error);
+        return;
+    }
+.. note:: If you get an error connecting it may be that you are running `https` and the development certificate for ``localhost`` is not trusted. You can run ``dotnet dev-certs https --trust`` in order to trust the development certificate. This only needs to be done once.
 
-For example:
+Next you can use the information from the discovery document to request a token to IdentityServer to access ``api1``::
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+    // request token
+    var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+    {
+        Address = disco.TokenEndpoint,
 
+        ClientId = "client",
+        ClientSecret = "secret",
+        Scope = "api1"
+    });
+    
+    if (tokenResponse.IsError)
+    {
+        Console.WriteLine(tokenResponse.Error);
+        return;
+    }
+
+    Console.WriteLine(tokenResponse.Json);
