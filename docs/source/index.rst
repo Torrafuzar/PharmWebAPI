@@ -1,7 +1,7 @@
 Welcome to PharmWebAPI documentation!
 ===================================
 
-**PharmWeb** is a full online software package, dispensing and point-of-sale  
+**PharmWeb** is a full online software package, dispensing and point-of-sale.  
 It's a full online solution for any pharmacy.
 
 Check out the :doc:`usage` section for further information.
