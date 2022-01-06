@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'PharmWeb'
+copyright = '2022, EasyRx Software'
+author = 'Gerald Greyvenstein'
 
 release = '0.1'
 version = '0.1.0'
