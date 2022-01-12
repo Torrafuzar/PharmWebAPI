@@ -8,4 +8,4 @@ API
 
    lumache
 
-.. image Images/ApiSwagger.png
+.. image:: Images/ApiSwagger.png
