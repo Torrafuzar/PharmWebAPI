@@ -10,8 +10,8 @@ API
 
 .. image:: Images/ApiSwagger.png
 
-Multi-Tenancy
-^^^^^^^^^^^^
+URL Multi-Tenancy
+^^^^^^^^^^^^^^^^^
 Multi-tenancy architecture helps us to share the resources cost-efficiently and securely in cloud environments where the single instance of the software runs on a server and serves multiple tenants. In which statelessness plays a major role in scaling for millions of concurrent users. Statelessness means that every Http request(API) happens in complete isolation. When the client makes an Http request, it includes all the information necessary for the server to fulfill that request.
 
 Our API can route database persistance in multibile patterns, depending on the needs of the client, database persistance get route by the {__tenant__} in the url. This value wil be provided on enrolments
@@ -20,6 +20,14 @@ Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API 
 
 .. image:: Images/Tendancy.png
 
+URI Versioning
+^^^^^^^^^^^^^^
+To manage this complexity, version your API. Versioning helps us to iterate faster when the needed changes are identified in the APIs.
+
+Using the URI is the most straightforward approach (and most commonly used as well) though it does violate the principle that a URI should refer to a unique resource. You are also guaranteed to break client integration when a version is updated.
+
+The version need not be numeric, nor specified using the “v[x]” syntax.
+.. autosummary:: /Test/api/v{version}/AutoOrders
 
 
 AutoOrders
