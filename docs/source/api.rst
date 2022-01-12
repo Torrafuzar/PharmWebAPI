@@ -28,7 +28,7 @@ Using the URI is the most straightforward approach (and most commonly used as we
 
 The version need not be numeric, nor specified using the “v[x]” syntax.
 
-.. code-block:: 
+.. code-block:: console
   /Test/api/v{version}/AutoOrders
 
 
