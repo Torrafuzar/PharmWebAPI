@@ -1,4 +1,4 @@
-.. image:: images/PharmWebLogo.png
+.. image:: Images/PharmWebLogo.png
 
 Welcome to PharmWeb documentation!
 ===================================
