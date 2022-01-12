@@ -1,4 +1,6 @@
-Welcome to PharmWeb API documentation!
+.. image:: images/PharmWebLogo.png
+
+Welcome to PharmWeb documentation!
 ===================================
 
 **PharmWeb** is a full online software package, for dispensing and point-of-sale use.
