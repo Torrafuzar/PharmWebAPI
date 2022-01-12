@@ -7,3 +7,5 @@ API
    :toctree: generated
 
    lumache
+
+.. image Images/ApiSwagger.png
