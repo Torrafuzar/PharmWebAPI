@@ -36,5 +36,19 @@ The version need not be numeric, nor specified using the “v[x]” syntax.
 API Calls
 ^^^^^^^^^
 
-.. admonition:: AutoOrders
+.. admonition:: AutoOrders 
+   
    /{__tenant__}/api/v{version}/AutoOrders
+
+   **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
+   
+   * Script - Used to dispense a normal script on winscripts (OrderType = 0) 
+   * OrderDirect - Used to send stock orders (OrderType = 1)
+   * OrderWise - Used to send stock orders (OrderType = 2)
+   * XProCure - Used to send stock orders (OrderType = 3)
+   * Orders (WareHouse Order) - Used to send automated orders from a warehouse (OrderType = 4) 
+   * ERx (WareHouse Order) - Used to send Scriopts to brances for stock control (OrderType = 5)
+   
+   
+
+   
