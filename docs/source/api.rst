@@ -16,7 +16,7 @@ Multi-tenancy architecture helps us to share the resources cost-efficiently and 
 
 Our API can route database persistance in multibile patterns, depending on the needs of the client, database persistance get route by the ``{__tenant__}`` in the url. This value wil be provided on enrolments
 
-  /**Test**/api/v{version}/AutoOrders
+  /**Test**/api/v{version}/Test
 
 Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API uses Multi-tendant 1 or Multi-tendant 2 as shows below. 
 
@@ -31,24 +31,128 @@ Using the URI is the most straightforward approach (and most commonly used as we
 
 The version need not be numeric, nor specified using the “v[x]” syntax.
 
-  /Test/api/**v1**/AutoOrders
+  /Test/api/**v1**/Test
 
 API Calls
 ^^^^^^^^^
 
-.. admonition:: AutoOrders 
+.. Info::
    
-   /{__tenant__}/api/v{version}/``AutoOrders``
+   Please refer to https://pharmwebapi.azurewebsites.net/index.html for the full APi documentation
+
+.. admonition:: AutoOrders 
 
    **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
    
+   ``/{__tenant__}/api/v{version}/AutoOrders``
+
 * Script - Used to dispense a normal script on winscripts (OrderType = 0) 
 * OrderDirect - Used to send stock orders (OrderType = 1)
 * OrderWise - Used to send stock orders (OrderType = 2)
 * XProCure - Used to send stock orders (OrderType = 3)
 * Orders (WareHouse Order) - Used to send automated orders from a warehouse (OrderType = 4) 
 * ERx (WareHouse Order) - Used to send Scriopts to brances for stock control (OrderType = 5)
+
+**Getting Orders**
+  Fetching of Orders will only be used by *Winscripts* to :superscript:`Auto Dispense` at the branch.
+  
+**Adding Orders**
+  Adding of orders will create a order depending on the branch to be send to be  :superscript:`Auto Dispense` at each branch.
+  
+  To create an Order a POST request needs to be made at ``/{__tenant__}/api/v{version}/AutoOrders`` with a *json* body as shown below.
+  
+  .. code-block:: json
+
+    {
+    "branchCode": "1111111",
+    "orderName": "RX1", 
+    "referenceNo": "1",
+    "dateTime": "2022-01-10T12:00:00.000Z",
+    "referenceDate": "2022-01-10T12:00:00.000Z",
+    "numberOfItems": "2",
+    "customerInfo": {
+        "branchId": "12345678",
+        "firstName": "JACK",
+        "surname": "DANIELS",
+        "title": "MR",
+        "idNumber": "7908125066081",
+        "masNumber": "123",
+        "mainMemberDepCode": "1",
+        "initials": "J",
+        "dateAdded": "2022-01-10T12:00:00.000Z",
+        "work": "555-5555",
+        "home": "666-6666",
+        "cellular": "0734571345",
+        "eMail": "mrdaniels@jackdanilsupholstry.com",
+        "refCode": "123",
+        "custMasInfo": {
+            "primaryMasNumber": "123",
+            "primaryPayCode": "CASH",
+            "primaryMasCode": "CAS"
+        }
+    },
+    "orderStatus": "1",
+    "orderType": "5",
+    "items": [
+        {
+            "branchStockId": "703987001",
+            "cost": "50.00",
+            "quantity": "1",
+            "retail": "100.00",
+            "stockDescription": "ALTOSEC 20MG CAP 28",
+            "itemNo": "1",
+            "nappiCode": "703987001",
+            "dosage": "TDS",
+            "ddu": "30",
+            "barCode": "",
+            "repeats": "6",
+            "currRepeat": "1",
+            "days": "30"
+        },
+        {
+            "branchStockId": "768375010",
+            "cost": "100.00",
+            "quantity": "2",
+            "retail": "500.00",
+            "stockDescription": "ADCO SYNALEVE CAP 100",
+            "itemNo": "2",
+            "nappiCode": "768375010",
+            "dosage": "2 TIMES DAILY",
+            "ddu": "TDS",
+            "barCode": "",
+            "repeats": "12",
+            "currRepeat": "1",
+            "days": "30"
+        }
+    ]
+}
+  
+**Required Fields** 
+
+  ``orderName`` *type:* **string** *maxLength:* **100** *minLength:* **0** :subscript:`(Ordername can be anyname as log as its unique with every POST)`
+  
+  ``referenceNo`` *type:* **string** *maxLength:* **100** *minLength:* **0** :subscript:`(Reference number as unique trasnaction number from the external source)`    
+
+  ``branchCode`` *type:* **string** *maxLength:* **10** *minLength:* **0** :subscript:`(This is a branch ref code, you can get a list for brachces for the API)`     
    
+  ``branchId`` *type:* **string** *maxLength:* **100**  :subscript:`(This is a unique customerid from from the external software)`     
+   
+  ``title`` *type:* **string** *maxLength:* **7**
+    
+  ``firstName`` *type:* **string** *maxLength:* **7**
+
+  ``surname`` *type:* **string** *maxLength:* **30**
+
+  ``stockDescription`` *type:* **string** *maxLength:* **100**
+  
+  ``branchstockId`` :subscript:`(This is a unique stockid from from the external software)`     
+
+  ``quantity`` *type:* **number** **
+
+  ``cost`` *type:* **number** *maxLength:* **30**
+
+  ``retail`` *type:* **number** *maxLength:* **30**
+
    
 
    
