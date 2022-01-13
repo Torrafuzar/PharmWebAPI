@@ -48,11 +48,11 @@ API Calls
 
 AutoOrders
 ^^^^^^^^^^
-.. admonition:: AutoOrders 
+.. admonition:: AutoOrders ``/{__tenant__}/api/v{version}/AutoOrders``
 
    **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
    
-   ``/{__tenant__}/api/v{version}/AutoOrders``
+AutoOrder Types 
 
 * Script - Used to dispense a normal script on winscripts (OrderType = 0) 
 * OrderDirect - Used to send stock orders (OrderType = 1)
