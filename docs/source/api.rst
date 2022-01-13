@@ -153,6 +153,18 @@ API Calls
 
   ``retail`` *type:* **number** *maxLength:* **30**
 
+.. admonition:: Branch 
+
+   **Branch** Add and register branches, for external users only GET post wil be used to get all branches BranchCode, 
+
+   ``/{__tenant__}/api/v{version}/Branch``
+
+.. infomation:: BranchCode
+
+   BranchCode ..is every branch uneuqe indetifier to be used when adding orders ot getting stokc for example, this is use to filter the results
+   
+   
+
    
 
    
