@@ -1,13 +1,13 @@
-API
-===
+============
+PharmWeb API
+============
 
 .. note:: To get the API swagger documetation, you can go to https://pharmwebapi.azurewebsites.net/index.html
 
 .. autosummary::
-   :toctree: The Api is protected by a STS/IDP Server ..and requires a toke to gain access.
-
-   lumache
-
+   The Api is protected by a STS/IDP Server ..and requires a toke to gain access.
+   
+ 
 .. image:: Images/ApiSwagger.png
 
 URL Multi-Tenancy
@@ -21,7 +21,6 @@ Our API can route database persistance in multibile patterns, depending on the n
 Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API uses Multi-tendant 1 or Multi-tendant 2 as shows below. 
 
 .. image:: Images/Tendancy.png
-
 
 URI Versioning
 ^^^^^^^^^^^^^^
@@ -40,6 +39,8 @@ API Calls
    
    Please refer to https://pharmwebapi.azurewebsites.net/index.html for the full APi documentation
 
+AutoOrders
+----------
 .. admonition:: AutoOrders 
 
    **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
