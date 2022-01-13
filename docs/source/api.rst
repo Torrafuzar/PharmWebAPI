@@ -8,9 +8,10 @@ PharmWeb API
 OverView
 ----------
 
-.. note:: To get the API swagger documetation, you can go to https://pharmwebapi.azurewebsites.net/index.html
+.. important:: 
+   To get the API swagger documetation, you can go to https://pharmwebapi.azurewebsites.net/index.html
 
-.. autosummary::
+.. attention::
    The Api is protected by a STS/IDP Server ..and requires a toke to gain access.
    
 .. image:: Images/ApiSwagger.png
