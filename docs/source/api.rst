@@ -7,7 +7,6 @@ PharmWeb API
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-
 OverView
 ----------
 
@@ -18,6 +17,20 @@ OverView
    The Api is protected by a STS/IDP Server ..and requires a toke to gain access.
    
 .. image:: Images/ApiSwagger.png
+
+.. info:: API Response Layout
+   All responses from the api will be in a standard layout, consistent response format for both successful and error results.
+   
+.. code-block:: json
+    
+   {
+   "version": "string",
+   "statusCode": 0,
+   "message": "string",
+   "isError": true,
+   "responseException": {},
+   "result": {}
+   }
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -196,8 +209,7 @@ Stock
 
    BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
 
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 StockCollection
 ^^^^^^^^^^^^^^^
@@ -209,6 +221,7 @@ StockCollection
 
    BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
    
+--------------------------------------------------------------------------------------------------------------------------------------------
    
    
 
