@@ -3,6 +3,10 @@ API
 
 .. note:: To get the API swagger documetation, you can go to https://pharmwebapi.azurewebsites.net/index.html
 
+.. important::
+   https://pharmwebapi.azurewebsites.net/index.html
+
+
 .. autosummary::
    :toctree: The Api is protected by a STS/IDP Server ..and requires a toke to gain access.
 
@@ -14,7 +18,11 @@ URL Multi-Tenancy
 ^^^^^^^^^^^^^^^^^
 Multi-tenancy architecture helps us to share the resources cost-efficiently and securely in cloud environments where the single instance of the software runs on a server and serves multiple tenants. In which statelessness plays a major role in scaling for millions of concurrent users. Statelessness means that every Http request(API) happens in complete isolation. When the client makes an Http request, it includes all the information necessary for the server to fulfill that request.
 
-Our API can route database persistance in multibile patterns, depending on the needs of the client, database persistance get route by the {__tenant__} in the url. This value wil be provided on enrolments
+Our API can route database persistance in multibile patterns, depending on the needs of the client, database persistance get route by the ``{__tenant__}`` in the url. This value wil be provided on enrolments
+
+.. code-block:: console
+
+  /``Test``/api/v{version}/AutoOrders
 
 Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API uses Multi-tendant 1 or Multi-tendant 2 as shows below. 
 
@@ -35,3 +43,11 @@ The version need not be numeric, nor specified using the “v[x]” syntax.
 
 AutoOrders
 ^^^^^^^^^^
+.. seealso::
+
+   Module :py:mod:`zipfile`
+      Documentation of the :py:mod:`zipfile` standard module.
+
+   `GNU tar manual, Basic Tar Format <http://link>`_
+      Documentation for tar archive files, including GNU tar extensions.
+
