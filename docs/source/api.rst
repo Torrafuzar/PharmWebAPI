@@ -5,6 +5,9 @@ PharmWeb API
 .. contents::
    :local:
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
 OverView
 ----------
 
@@ -16,6 +19,7 @@ OverView
    
 .. image:: Images/ApiSwagger.png
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 URL Multi-Tenancy
 -----------------
@@ -29,6 +33,8 @@ Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API 
 
 .. image:: Images/Tendancy.png
 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 URI Versioning
 --------------
 To manage this complexity, version your API. Versioning helps us to iterate faster when the needed changes are identified in the APIs.
@@ -38,17 +44,22 @@ Using the URI is the most straightforward approach (and most commonly used as we
 The version need not be numeric, nor specified using the “v[x]” syntax.
 
   /Test/api/**v1**/Test
-
+  
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
 API Calls
 ---------
 
 .. Info::
    
    Please refer to https://pharmwebapi.azurewebsites.net/index.html for the full APi documentation
+   
+--------------------------------------------------------------------------------------------------------------------------------------------
+   
 
 AutoOrders
 ^^^^^^^^^^
-.. admonition:: AutoOrders ``/{__tenant__}/api/v{version}/AutoOrders``
+.. admonition:: ``/{__tenant__}/api/v{version}/AutoOrders``
 
    **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
    
@@ -137,7 +148,7 @@ AutoOrder Types
   
 **Required Fields** 
 
-  ``orderName`` *type:* **string** *maxLength:* **100** *minLength:* **0** :subscript:`(Ordername can be anyname as log as its unique with every POST)`
+  ``orderName`` **type:** *string* **maxLength:** **100** *minLength:* **0** :subscript:`(Ordername can be anyname as log as its unique with every POST)`
   
   ``referenceNo`` *type:* **string** *maxLength:* **100** *minLength:* **0** :subscript:`(Reference number as unique trasnaction number from the external source)`    
 
@@ -160,19 +171,45 @@ AutoOrder Types
   ``cost`` *type:* **number** *maxLength:* **30**
 
   ``retail`` *type:* **number** *maxLength:* **30**
-
-.. admonition:: Branch 
+  
+--------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Branch
+^^^^^^
+.. admonition:: ``/{__tenant__}/api/v{version}/Branch``
 
    **Branch** Add and register branches, for external users only GET post wil be used to get all branches BranchCode, 
-
-   ``/{__tenant__}/api/v{version}/Branch``
-
+ 
 .. infomation:: BranchCode
 
-   BranchCode ..is every branch uneuqe indetifier to be used when adding orders ot getting stokc for example, this is use to filter the results
+   BranchCode ..is every branch unique indetifier to be used when adding orders ot getting stock for example, this is used to filter the results.
    
+--------------------------------------------------------------------------------------------------------------------------------------------
    
+Stock
+^^^^^
+.. admonition:: ``/{__tenant__}/api/v{version}/Stock``
 
+   **Stock URL** is used to get and maintain individial stock items, all normal CRUD call can be made for single items.
+
+.. infomation:: BranchStockId
+
+   BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
+
+
+
+
+StockCollection
+^^^^^^^^^^^^^^^
+.. admonition:: ``/{__tenant__}/api/v{version}/StockCollectionController``
+
+   **StockCollection** Adds a new stock master file to the DB ....you can use a collection array json to POST stock. This opion is the quickest when adding stock.
+
+.. infomation:: BranchStockId
+
+   BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
+   
+   
    
 
    
