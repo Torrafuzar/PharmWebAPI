@@ -51,3 +51,8 @@ AutoOrders
    `GNU tar manual, Basic Tar Format <http://link>`_
       Documentation for tar archive files, including GNU tar extensions.
 
+.. code-block:: python
+   :caption: this.py
+   :name: this-py
+
+   print 'Explicit is better than implicit.'
