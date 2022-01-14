@@ -174,8 +174,10 @@ API Calls
 --------------------------------------------------------------------------------------------------------------------------------------------
    
 
-AutoOrders ``/{__tenant__}/api/v{version}/AutoOrders``
+AutoOrders 
 ^^^^^^^^^^
+
+``/{__tenant__}/api/v{version}/AutoOrders``
 
 .. admonition:: Info
 
@@ -297,6 +299,8 @@ Branch
 
 ``/{__tenant__}/api/v{version}/Branch``
 
+.. admonition:: Info
+
    **Branch** Add and register branches, for external users only GET post wil be used to get all branches BranchCode, 
  
 .. infomation:: BranchCode
@@ -332,7 +336,10 @@ Branch ``GET`` reponse
    
 Stock
 ^^^^^
-.. admonition:: ``/{__tenant__}/api/v{version}/Stock``
+
+``/{__tenant__}/api/v{version}/Stock``
+
+.. admonition:: Info
 
    **Stock URL** is used to get and maintain individial stock items, all normal CRUD call can be made for single items.
 
@@ -344,7 +351,10 @@ Stock
 
 StockCollection
 ^^^^^^^^^^^^^^^
-.. admonition:: ``/{__tenant__}/api/v{version}/StockCollectionController``
+
+``/{__tenant__}/api/v{version}/StockCollectionController``
+
+.. admonition:: Info 
 
    **StockCollection** Adds a new stock master file to the DB ....you can use a collection array json to POST stock. This opion is the quickest when adding stock.
 
