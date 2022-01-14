@@ -293,13 +293,39 @@ AutoOrder Types
  
 Branch
 ^^^^^^
-.. admonition:: ``/{__tenant__}/api/v{version}/Branch``
+
+``/{__tenant__}/api/v{version}/Branch``
 
    **Branch** Add and register branches, for external users only GET post wil be used to get all branches BranchCode, 
  
 .. infomation:: BranchCode
 
    BranchCode ..is every branch unique indetifier to be used when adding orders ot getting stock for example, this is used to filter the results.
+
+Branch ``GET`` reponse
+
+.. code-block:: json
+
+    {
+    "message": "GET Request successful.",
+    "result": {
+        "page": 1,
+        "pageSize": 50,
+        "totalCount": 16,
+        "data": [
+            {
+                "branchCode": "3333333",
+                "title": "TESTING",
+                "ownerUserId": "08d9d1d3-14f5-4ffa-815f-eb80fbb4da9b",
+                "branchName": "TESTING",
+                "addr1": "TESTING ADDRESS 1",
+                "addr2": "TESTING ADDRESS 2",
+                "addr3": "TESTING ADDRESS 3",
+                "created": "2022-01-07T11:44:38.152981",
+                "isActive": false
+            }
+        ]
+    }   
    
 --------------------------------------------------------------------------------------------------------------------------------------------
    
