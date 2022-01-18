@@ -342,6 +342,8 @@ Stock
 .. admonition:: Info
 
    **Stock URL** is used to get and maintain individial stock items, all normal CRUD call can be made for single items.
+   
+   Please see documetaion @ https://pharmwebapi.azurewebsites.net/index.html
 
 .. infomation:: BranchStockId
 
@@ -356,12 +358,140 @@ StockCollection
 
 .. admonition:: Info 
 
-   **StockCollection** Adds a new stock master file to the DB ....you can use a collection array json to POST stock. This opion is the quickest when adding stock.
+   **StockCollection** Adds and update the stock master list to the DB ....you must use a collection array json to `POST` stock. This opion is the quickest when adding or        updating stock. Max of 500 items must be send at a time
+
+   Please see documetaion @ https://pharmwebapi.azurewebsites.net/index.html
 
 .. infomation:: BranchStockId
 
    BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
    
+Below is a json `POST` of 2 items, and FrontShop item and Dispensing item.
+
+.. code-block:: json
+
+      [
+    {
+        "bId": 5,
+        "branchStockId": "",
+        "sku": "",
+        "description": "8TA10 R 10 TELKOM",
+        "packSize": 1.0,
+        "deptCode": 0,
+        "locationCode": 0,
+        "taxCode": 15,
+        "reOrderLevel": 0.0,
+        "maxLevel": 0.0,
+        "posRetailForDisp": false,
+        "external": "1|8TA10",
+        "disProd": false,
+        "stockTakeFlag": false,
+        "lockDescription": false,
+        "lockPackSize": false,
+        "excludeRepeats": false,
+        "stockPos": {
+            "averageCost": 8.43,
+            "posRetail": 10.0,
+            "promptForDesc": false,
+            "maxDiscount": 0.0,
+            "noDiscount": false,
+            "overideRetail": false,
+            "isService": false,
+            "loyaltyGroup": 0,
+            "stockRep": 0,
+            "special": 0,
+            "mAmt": 0.0,
+            "mPer": 0.0
+        },
+        "stockPharm": {
+            "uniqueCode": "",
+            "strength": "",
+            "formCode": "",
+            "schedule": "",
+            "therapeuticClass": "",
+            "sepCost": 0.0,
+            "retail": 0.0,
+            "lastUpdate": "0001-01-01T00:00:00",
+            "prevSepCost": 0.0,
+            "prevRetail": 0.0,
+            "discDateTime": "0001-01-01T00:00:00",
+            "stockLinkId": 0,
+            "sepLock": false
+        },
+        "stockCodes": [
+            {
+                "code": "1|8TA10",
+                "barcode": true,
+                "search": false,
+                "isDeleted": false,
+                "gId": 0
+            }
+        ],
+        "gId": 0
+    },
+    {
+        "bId": 1002,
+        "branchStockId": "",
+        "sku": "",
+        "description": "BIOPLUS VIT-ALITY MAGNESIUM EFF 10",
+        "packSize": 10.0,
+        "deptCode": 0,
+        "locationCode": 0,
+        "taxCode": 15,
+        "reOrderLevel": 0.0,
+        "maxLevel": 0.0,
+        "uniqueCode": "3002066001",
+        "posRetailForDisp": false,
+        "external": "LP9002758",
+        "disProd": false,
+        "stockTakeFlag": false,
+        "lockDescription": false,
+        "lockPackSize": false,
+        "excludeRepeats": false,
+        "stockPos": {
+            "averageCost": 36.88,
+            "posRetail": 65.95,
+            "promptForDesc": false,
+            "maxDiscount": 0.0,
+            "noDiscount": false,
+            "overideRetail": false,
+            "isService": false,
+            "loyaltyGroup": 0,
+            "stockRep": 0,
+            "special": 0,
+            "mAmt": 0.0,
+            "mPer": 0.0
+        },
+        "stockPharm": {
+            "uniqueCode": "3002066001",
+            "strength": "",
+            "formCode": "EFT",
+            "schedule": "9",
+            "therapeuticClass": "A11 00",
+            "sepCost": 46.16,
+            "retail": 69.24,
+            "nappi": "3002066",
+            "lastUpdate": "2022-01-12T11:34:10",
+            "prevSepCost": 46.16,
+            "prevRetail": 69.24,
+            "manCode": "AID",
+            "discDateTime": "1899-12-30T00:00:00",
+            "stockLinkId": 0,
+            "sepLock": false
+        },
+        "stockCodes": [
+            {
+                "code": "6009695588125",
+                "barcode": true,
+                "search": false,
+                "isDeleted": false,
+                "gId": 0
+            }
+        ],
+        "gId": 0
+    }
+]
+
 --------------------------------------------------------------------------------------------------------------------------------------------
    
    
