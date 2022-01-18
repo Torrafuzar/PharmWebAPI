@@ -22,8 +22,8 @@ Branch Register Process
 
 .. note:: Role Administartor must only be specified for the registering process, when the branch has been registerd, Admin role must be taken off.
 
-| Log-out and log in again using the details specified, to TEST if infomation has bee added corecctly, if loged in, allow all grants to give acces to the global user.
-| Log-out and start the migration process to register the branch, if infomation has not been added corectly, invalid grad wil be shows as an error.
+| Log-out and logged in again using the details specified, to TEST if infomation has bee added correctly, if logged in, allow all grants to give access to the global user.
+| Log-out and start the migration process to register the branch, if infomation has not been added correctly, invalid grant will be shown as an error .
 | ** Log in again and remove the Administartor role for the global braach user you have added
 
 
