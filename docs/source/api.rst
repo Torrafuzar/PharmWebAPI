@@ -162,6 +162,15 @@ Error Response (Branches call with invalid tendant info)
        "extensions": {}
     }
 
+Authenification
+---------------
+
+.. Info::
+   
+   Please refer to https://pharmwebapi.azurewebsites.net/index.html for the full APi documentation
+
+The API documention is protecte
+
 
 
 API Calls
