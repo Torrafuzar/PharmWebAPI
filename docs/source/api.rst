@@ -553,10 +553,99 @@ Example json `POST` 201-Created reponse, please note that all items needs to be 
        ]
     }
   
+Example of `POST` response of added and updated items, see added tag
+
+.. code-block:: json
+   
+   {
+    "message": "POST Request successful.",
+    "result": [
+        {
+            "bId": 1003,
+            "id": 110908,
+            "branchStockId": "111",
+            "sku": "BIO/10/EFT10",
+            "description": "BIOPLUS VIT-ALITY MAGNESIUM EFF 10",
+            "uniqueCode": "3002066001",
+            "added": true
+        },
+        {
+            "bId": 5,
+            "id": 5,
+            "branchStockId": "1|8TA10",
+            "description": "8TA10 R 10 TELKOM",
+            "added": false
+        }
+       ]
+   }  
   
+--------------------------------------------------------------------------------------------------------------------------------------------  
+
+StockOnHand
+^^^^^^^^^^^
+
+``/{__tenant__}/api/v{version}/StockOnHand``
+
+.. admonition:: Info
+
+   **StockOnHand URL** is used to get estimated level of a batch of items. The level is estimated, becouse a brach can go offline, and levels wil be updated when the brach is online again. 
+   
+   Please see documetaion @ https://pharmwebapi.azurewebsites.net/index.html
+
+.. infomation:: BranchCode
+
+   BranchCode ..is every branch unique indetifier to be used when adding orders ot getting stock for example, this is used to filter the results.
+
+.. infomation:: BranchStockId
+
+   BranchStockId ..is  unique indetifier to be used when adding stock, with all fields supplied on post, it can generate a ID for you, or you can use an external value fot this.
+
+Example of `POST` body to get stock level on hand.
+
+.. code-block:: json
+
+   {
+    "branchCode": "3333339",
+    "items": [
+        {
+            "branchStockId": "0309978417071"
+        },
+        {
+            "branchStockId": "6005911003830"
+        }
+            ]
+     }
+
+
+`POST` Response.
+
+.. code-block:: json
+
+   {
+    "message": "POST Request successful.",
+    "result": {
+        "branchCode": "3333339",
+        "items": [
+            {
+                "branchStockId": "0309978417071",
+                "quantity": -50,
+                "packs": "-1.0",
+                "packSize": 50.0,
+                "isStocked": false
+            },
+            {
+                "branchStockId": "6005911003830",
+                "quantity": 0,
+                "packs": "0.0",
+                "packSize": 1.0,
+                "isStocked": false
+            }
+        ]
+    }
+   }
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------
-   
    
 
    
