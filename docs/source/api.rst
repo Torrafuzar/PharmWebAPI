@@ -153,7 +153,7 @@ Error Response (Branches call with invalid tendant info)
     
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Paging Reponses
+Paging Responses
 ^^^^^^^^^^^^^^^^^^
 .. Info::
    
@@ -190,8 +190,8 @@ Paging Reponses
         "data": [
             {}]
 
-Authenification
----------------
+API Docs Swagger Authentication
+-------------------------------
 
 .. Info::
    
