@@ -20,7 +20,7 @@ Branch Register Process
 | User Lockout Enabled must be checked;
 | Roles must be set to Administrator and Owner;
 
-.. note:: Role Administartor must only be specified for the registering process, when the brach has been registerd, Admin role must be taken off.
+.. note:: Role Administartor must only be specified for the registering process, when the branch has been registerd, Admin role must be taken off.
 
 | Log-out and log in again using the details specified, to TEST if infomation has bee added corecctly, if loged in, allow all grants to give acces to the global user.
 | Log-out and start the migration process to register the branch, if infomation has not been added corectly, invalid grad wil be shows as an error.
