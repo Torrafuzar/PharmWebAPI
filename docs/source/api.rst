@@ -20,17 +20,6 @@ OverView
 
 .. info:: API Response Layout
    All responses from the api will be in a standard layout, consistent response format for both successful and error results.
-   
-.. code-block:: json
-    
-   {
-   "version": "string",
-   "statusCode": 0,
-   "message": "string",
-   "isError": true,
-   "responseException": {},
-   "result": {}
-   }
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -42,7 +31,7 @@ Our API can route database persistance in multibile patterns, depending on the n
 
   /**Test**/api/v{version}/Test
 
-Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API uses Multi-tendant 1 or Multi-tendant 2 as shows below. 
+Our Legancy progarm Winscripts follows the Single-tenant pattern, while the API uses Multi-tendant 1 or Multi-tendant 2 as shows below. 
 
 .. image:: Images/Tendancy.png
 
@@ -50,9 +39,9 @@ Our Leganvy progarm Winscripts folloes the Single-tenant pattern, while the API 
 
 Versioning (Url Routing)
 ------------------------
-To manage this complexity, version your API. Versioning helps us to iterate faster when the needed changes are identified in the APIs.
+To avoid downtime, and add changes to the API this complexity can be manage by, version your API. Versioning helps us to iterate faster when the needed changes are identified in the APIs.
 
-Using the URI is the most straightforward approach (and most commonly used as well) though it does violate the principle that a URI should refer to a unique resource. You are also guaranteed to break client integration when a version is updated.
+Using the URI routing is the most straightforward approach (and most commonly used as well) though it does violate the principle that a URI should refer to a unique resource. You are also guaranteed to not break client integration when a version is updated.
 
 Versining get routed by url path ``v{version}``
 
@@ -161,6 +150,45 @@ Error Response (Branches call with invalid tendant info)
        "instance": "/ErxTes/api/v1/Branch",
        "extensions": {}
     }
+    
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Paging Reponses
+^^^^^^^^^^^^^^^^^^
+.. Info::
+   
+   The pharmweb APi has 2 paging result sets.
+   
+`Paging` Result set   
+
+.. code-block:: json
+
+   {
+    "message": "GET Request successful.",
+    "result": {
+        "page": 1,
+        "pageSize": 50,
+        "totalCount": 17,
+        "data": [
+            {}
+            ]
+
+
+`Paged` Result set
+
+.. code-block:: json
+
+   {
+    "message": "GET Request successful.",
+    "result": {
+        "totalCount": 87044,
+        "currentPage": 1,
+        "perPage": 50,
+        "totalPages": 1741,
+        "hasPrevious": false,
+        "hasNext": true,
+        "data": [
+            {}]
 
 Authenification
 ---------------
@@ -169,9 +197,9 @@ Authenification
    
    Please refer to https://pharmwebapi.azurewebsites.net/index.html for the full APi documentation
 
-The API documention is protecte
+The API documention is protecteed by O-Auth2, please ask for autentification details to test the API by swagger, else postman collection wil be given to test the API  
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 API Calls
 ---------
@@ -190,7 +218,7 @@ AutoOrders
 
 .. admonition:: Info
 
-   **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, an *Autoorder* can be of type
+   **Auto Orders** call creates Orders in pharmweb to be send the a branch for dispesing, if a customer is not listed the customer wil be added automaticly.
    
 AutoOrder Types 
 
@@ -202,9 +230,11 @@ AutoOrder Types
 * ERx (WareHouse Order) - Used to send Scriopts to brances for stock control (OrderType = 5)
 
 **Getting Orders**
+
   Fetching of Orders will only be used by *Winscripts* to :superscript:`Auto Dispense` at the branch.
   
 **Adding Orders**
+  
   Adding of orders will create a order depending on the branch to be send to be  :superscript:`Auto Dispense` at each branch.
   
   To create an Order a POST request needs to be made at ``/{__tenant__}/api/v{version}/AutoOrders`` with a *json* body as shown below.
