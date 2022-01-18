@@ -550,8 +550,8 @@ Example json `POST` 201-Created reponse, please note that all items needs to be 
             "uniqueCode": "3002066001",
             "added": true
         }
-    ]
-}
+       ]
+    }
   
   
 
