@@ -8,7 +8,7 @@ The local db or branch stock, now needs to be linked to the cloud db, to ensure 
 .. image:: Images/StockLevels1.png
    :align: center
 
-Once procuts has been linked ... Stock levels needs to be uploaded ..see stemp below
+Once products has been linked ... Stock levels needs to be uploaded ..see stemp below
 
 .. image:: Images/StockLevels2.png
    :align: center
