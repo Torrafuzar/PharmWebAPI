@@ -333,11 +333,11 @@ AutoOrder Types
   
 **Canceling Orders** 
   
-  Canceling of Orders can be made by calling ``/{__tenant__}/api/v{version}/AutoOrders/{orderNo}`` with the OrderReno tjhat was returnd when a order was made.
+  Canceling of Orders can be made by calling ``/{__tenant__}/api/v{version}/AutoOrders/{orderNo}`` with the OrderRefno or OrderNumber thhat was returned when a order was made.
   
   .. admonition:: Info
 
-   **Cancel Order** Yo cancel a order you need to send a JsonPatch document, this allows to only update or add fields that is required to ne updates, instead of doing a full update, this make the json send payload mutch smaller and quicker. Lear more abount JasonPatch @ ``https://docs.microsoft.com/en-us/aspnet/core/web-api/jsonpatch?view=aspnetcore-6.0``
+   **Cancel Order** To Cancel an order you need to send a JsonPatch document, this allows to only update or add fields that is required to ne updates, instead of doing a full update, this make the json send payload mutch smaller and quicker. Learn more abount JasonPatch @ ``https://docs.microsoft.com/en-us/aspnet/core/web-api/jsonpatch?view=aspnetcore-6.0``
 
 
 Example of a JSON ``PATCH`` request, Use OrderStatus 9 to enable AutoCancelations
