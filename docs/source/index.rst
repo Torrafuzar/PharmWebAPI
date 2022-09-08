@@ -23,3 +23,4 @@ Contents
    api
    branchregister
    migratingstocklevels
+   winreports
